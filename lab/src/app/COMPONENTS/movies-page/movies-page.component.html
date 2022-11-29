@@ -1,8 +1,15 @@
 <div>
   <h1>Characters:</h1>
   <ul>
-    <li *ngFor="let character of charactersArr; let i = index">
-      {{ character.name }}
+    <li
+      *ngFor="let character of charactersArr; let i = index"
+      (click)="displayDetails()"
+    >
+      {{ character.name }} Click me!
+      <app-character-detail
+        [charProp]="character"
+        [index]="i"
+      ></app-character-detail>
     </li>
   </ul>
 </div>

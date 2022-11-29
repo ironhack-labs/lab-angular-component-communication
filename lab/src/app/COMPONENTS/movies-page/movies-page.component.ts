@@ -28,13 +28,7 @@ export class MoviesPageComponent implements OnInit {
             this.charactersArr.push(singleChar);
           }
           
-          // for(let char of dataResult){
-          //     let name = char.name;
-          //     this.namesArr.push(name)
-              
-              
-          // }
-          // console.log(this.namesArr)
+          
 
 
         },
@@ -43,6 +37,10 @@ export class MoviesPageComponent implements OnInit {
           console.log(error);
         }
       })
+    
+  }
+  displayDetails(){
+    
     
   }
   

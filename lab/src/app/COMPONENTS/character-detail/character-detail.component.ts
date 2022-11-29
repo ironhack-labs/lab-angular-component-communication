@@ -7,20 +7,15 @@ import { MovieDetail } from 'src/app/MODELS/movie-detail.model';
   styleUrls: ['./character-detail.component.css']
 })
 export class CharacterDetailComponent {
- 
-  charName: string;
-  charOccupation: string;
-  charDebt: boolean;
-  charWeapon: string;
-  charId: number;
 
+  @Input("charProp")
+  character: MovieDetail;
+ 
+  @Input()
+  index: number;
 
   constructor(){
-    this.charName = "";
-    this.charOccupation = "";
-    this.charDebt = false;
-    this.charWeapon= "";
-    this.charId = 0;
+   this.character = new MovieDetail('','', false, '', 0);
   }
   ngOnInit(): void {}
 
