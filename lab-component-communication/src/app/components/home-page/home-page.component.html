@@ -1,0 +1,24 @@
+
+<body>
+
+    
+    <div class="char-box">
+        <h1>Characters</h1>
+        <ul *ngFor="let char of charList, let i=index">
+            <li (click)="shown(char)">{{char.name}}</li>
+            <app-char-item 
+            
+            [char]="char" 
+            [index]="i" 
+            (indexChar)="removeChar($event)">
+            </app-char-item>
+
+        </ul>
+    </div>
+
+    <div class="create-char-box">
+        <h3>Create Character</h3>
+        <app-create-char></app-create-char>
+    </div>
+</body>
+
