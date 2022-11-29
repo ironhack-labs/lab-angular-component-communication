@@ -1,0 +1,10 @@
+aside {
+    width: 30vw;
+    height: fit-content;
+    padding: 20px; 
+    background-color: blue;
+}
+
+li {
+    list-style-type: none;
+}
