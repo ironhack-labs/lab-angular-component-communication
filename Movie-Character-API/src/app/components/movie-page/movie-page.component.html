@@ -1,0 +1,28 @@
+<h1>Movie Characters for everyone!</h1>
+
+<div class="container">
+    <div class="fan-list">
+      <h2>Movie Characters</h2>
+      <!-- <button (click)="addRandomFan('madrid')">Add Random Fan</button> -->
+      <div *ngFor="let charac of characters; let i = index">
+        <img [src]="charac.profilePicture" [alt]="charac.name" />
+        <p>{{ charac.name }}</p>
+        <p>{{ charac.age }}</p>
+        <p>{{ charac.country }}</p>
+        <!-- <button (click)="removeChar(i, 'madrid')">Delete</button> -->
+        
+        <!-- <app-fan-item
+          [fanProp]="fan"
+          [index]="i"
+          (removeFanEvent)="removeFan($event, 'madrid')"
+          (changeTeamEvent)="changeTeam($event, 'madrid', true)"
+        ></app-fan-item> -->
+      </div>
+    </div>
+  
+    <div class="fan-list">
+      <h2>Selected Character</h2>
+
+      </div>
+    </div>
+  </div>
