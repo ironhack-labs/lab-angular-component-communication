@@ -27,4 +27,10 @@ export class CharactersListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  showItem(char:Character) : void {
+    console.log(char)
+    //DISPLAY DETAILS IN DETAILS COMPONENT:
+    //<app-characters-item [charProp]="char"></app-characters-item>
+  }
+
 }
