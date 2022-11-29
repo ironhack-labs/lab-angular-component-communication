@@ -1,6 +1,8 @@
 <div>
   <h1>Characters:</h1>
   <ul>
-    <li *ngFor="let character of namesArr; let i = index">{{ character }}</li>
+    <li *ngFor="let character of charactersArr; let i = index">
+      {{ character.name }}
+    </li>
   </ul>
 </div>

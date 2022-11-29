@@ -1,5 +1,6 @@
 import { Component, OnInit, ɵisListLikeIterable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MovieDetail } from 'src/app/MODELS/movie-detail.model';
 import { MovieListService } from 'src/app/SERVICES/movie-list.service';
 
 @Component({
@@ -9,22 +10,33 @@ import { MovieListService } from 'src/app/SERVICES/movie-list.service';
 })
 export class MoviesPageComponent implements OnInit {
   
-  namesArr: Array<string> = [];
+  charactersArr: MovieDetail[] = [];
 
   constructor(private movieListService: MovieListService){}
 
   addMovieList(): void{
     this.movieListService.getMovieList().subscribe(
       {
-        next: (dataResult: Array<any>) =>{
-          
+        next: (dataResult) =>{
           for(let char of dataResult){
-              let name = char.name;
-              this.namesArr.push(name)
-              
-              
+            let name: string = char.name;
+            let occupation: string = char.occupation;
+            let debt: boolean = char.debt;
+            let weapon: string = char.weapon;
+            let id: number = char.id;
+            let singleChar: MovieDetail = new MovieDetail( name, occupation, debt, weapon, id)
+            this.charactersArr.push(singleChar);
           }
-          console.log(this.namesArr)
+          
+          // for(let char of dataResult){
+          //     let name = char.name;
+          //     this.namesArr.push(name)
+              
+              
+          // }
+          // console.log(this.namesArr)
+
+
         },
 
         error: (error) => { 
