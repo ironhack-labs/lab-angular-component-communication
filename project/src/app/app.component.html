@@ -1,3 +1,9 @@
 <main>
-    <List></List>
+    <List 
+      [characters]="characters"
+      (itemClickEventParent)="changeCurrent($event)"
+    ></List>
+    <Detail
+      [character]="currentCharacter"
+    ></Detail>
 </main>

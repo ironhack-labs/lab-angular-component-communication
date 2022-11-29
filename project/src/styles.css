@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 0px; 
     margin: 0px; 
+    font-size: 1rem;
     font-family: 'DM Mono', monospace;
 }
 
@@ -11,4 +12,5 @@ body {
     height: 100%;
     width: 100%;
     background-color: red;
+    overflow: hidden;
 }

@@ -1,8 +1,14 @@
 aside {
-    width: 30vw;
-    height: fit-content;
-    padding: 20px; 
-    background-color: blue;
+    position: relative; 
+    width: fit-content;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgb(28, 28, 28);
+    overflow: scroll;
+}
+
+ul {
+    overflow: scroll; 
 }
 
 li {

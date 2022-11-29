@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from 'src/app/models/character/character.model';
 
 @Component({
@@ -10,8 +10,15 @@ export class ItemComponent {
     @Input()
     item: Character
 
+    @Output() 
+    itemClickEvent: EventEmitter<number>
 
     constructor() {
-        this.item = Object()
+        this.item = new Character()
+        this.itemClickEvent = new EventEmitter<number>()
+    }
+
+    onClick(): void {
+        this.itemClickEvent.emit(this.item.id)
     }
 }
