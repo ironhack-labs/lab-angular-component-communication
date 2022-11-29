@@ -1,0 +1,6 @@
+<h2>Characters list</h2>
+<ul>
+    <li *ngFor="let char of charactersList; let i=index">
+        <app-characters-item [charProp]="char"></app-characters-item>
+    </li>
+</ul>
