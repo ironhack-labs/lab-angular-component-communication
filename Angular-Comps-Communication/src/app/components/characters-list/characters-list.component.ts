@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { ListItem } from 'src/app/models/list-item';
+import { APICharacters } from 'src/app/services/characters.service';
+
+@Component({
+  selector: 'app-characters-list',
+  templateUrl: './characters-list.component.html',
+  styleUrls: ['./characters-list.component.css']
+})
+export class CharactersListComponent implements OnInit {
+  charactersNameList: ListItem[]
+
+  constructor(private APIChar: APICharacters) {
+    this.charactersNameList = [new ListItem('Pepe', 99), new ListItem('Pepes', 999)]
+  }
+
+  ngOnInit(): void {
+    console.log('Hola')
+    this.APIChar.getAllCharacters().subscribe(
+      {
+        next: (dataResult) => {
+          dataResult.map((el: any) => {
+            this.charactersNameList.push(new ListItem(el.name, el.id))
+          })
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          console.log('Soy la lista', this.charactersNameList)
+        }
+      }
+    );
+  }
+}
