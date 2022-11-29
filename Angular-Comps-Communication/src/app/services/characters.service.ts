@@ -13,8 +13,8 @@ export class APICharacters {
   getAllCharacters(): Observable<any> {
     return this.http.get<any>(this.API_URL + "/characters");
   }
-  getOneCharacter(): Observable<any> {
-    return this.http.get<any>(this.API_URL + "/characters/:id");
+  getOneCharacter(id: number): Observable<any> {
+    return this.http.get<any>(this.API_URL + `/characters/${id}`);
   }
   // createCharacter(): Observable<any> {
   //   return this.http.post<any>(this.API_URL + "/characters", body);

@@ -1,4 +1,8 @@
 <div>
     <p>{{char.name}}</p>
-    <p>{{char.id}}</p>
+    <button (click)="showDetails = !showDetails">Show Details</button>
+</div>
+
+<div *ngIf="showDetails">
+    <app-character-details [idProp]="id"></app-character-details>
 </div>

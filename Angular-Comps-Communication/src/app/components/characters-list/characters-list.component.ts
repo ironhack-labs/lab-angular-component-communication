@@ -8,10 +8,11 @@ import { APICharacters } from 'src/app/services/characters.service';
   styleUrls: ['./characters-list.component.css']
 })
 export class CharactersListComponent implements OnInit {
-  charactersNameList: ListItem[]
+  charactersNameList: ListItem[];
+  showDetails: boolean = false
 
   constructor(private APIChar: APICharacters) {
-    this.charactersNameList = [new ListItem('Pepe', 99), new ListItem('Pepes', 999)]
+    this.charactersNameList = []
   }
 
   ngOnInit(): void {

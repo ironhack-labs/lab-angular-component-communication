@@ -1,9 +1,11 @@
-<h1>Character</h1>
-
-<div *ngFor="let char of charactersNameList;">
-    <app-list-item [charProp]="char"></app-list-item>
+<div>
+    <h1>Characters</h1>
+    <div *ngFor="let char of charactersNameList;">
+        <app-list-item [charProp]="char"></app-list-item>
+    </div>
 </div>
+<!-- <div>
+        *ngif="showDetails" 
 
-
-
-<app-list-item></app-list-item>
+        <app-character-details></app-character-details>
+    </div> -->

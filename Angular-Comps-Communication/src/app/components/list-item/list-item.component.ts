@@ -10,8 +10,11 @@ export class ListItemComponent implements OnInit {
   @Input('charProp')
   char: ListItem
 
+  id: number
+  showDetails: boolean = false
   constructor() {
     this.char = new ListItem('', 0)
+    this.id = this.char.id
   }
 
   ngOnInit(): void { }
