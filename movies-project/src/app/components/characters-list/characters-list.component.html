@@ -2,9 +2,9 @@
 <ul>
     <li *ngFor="let char of charactersList; let i=index">
         <div (click)="showItem(char)">{{char.name}}</div>
-        <button (click)="deleteItem(char)">Delete trial</button>
+        <!-- <button (click)="deleteItem(char)">Delete trial</button> -->
         <div *ngIf="char.show == true">
-            <app-characters-item [charProp]="char"></app-characters-item>
+            <app-characters-item [charProp]="char" (deleteCharEvent)="deleteItem(char)"></app-characters-item>
         </div>
     </li>
 </ul>

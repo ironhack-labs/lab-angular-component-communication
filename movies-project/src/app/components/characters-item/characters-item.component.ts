@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 
 @Component({
@@ -10,10 +10,18 @@ export class CharactersItemComponent implements OnInit {
   @Input("charProp")
   char: Character;
 
+  @Output()
+  deleteCharEvent : EventEmitter<Character>
+
   constructor() {
     this.char = new Character("", "", "", false, false);
+    this.deleteCharEvent = new EventEmitter<Character>
   }
 
   ngOnInit(): void {}
+
+  deleteItem(){
+    this.deleteCharEvent.emit(this.char)
+  }
 
 }
