@@ -11,9 +11,12 @@ import { MovieListService } from 'src/app/SERVICES/movie-list.service';
 export class MoviesPageComponent implements OnInit {
   
   charactersArr: MovieDetail[] = [];
- 
+  clicked: boolean = false;
+  clickedCharacter: MovieDetail = new MovieDetail ('', '', false ,'', 0);
+  
 
   constructor(private movieListService: MovieListService){}
+  
 
   addMovieList(): void{
     this.movieListService.getMovieList().subscribe(
@@ -26,6 +29,7 @@ export class MoviesPageComponent implements OnInit {
             let weapon: string = char.weapon;
             let id: number = char.id;
             let singleChar: MovieDetail = new MovieDetail( name, occupation, debt, weapon, id)
+            
             this.charactersArr.push(singleChar);
           }
           
@@ -42,10 +46,19 @@ export class MoviesPageComponent implements OnInit {
   }
   
   
-
-
-
-
+  displayDetails(char: MovieDetail): void{
+    this.clickedCharacter = char;
+  }
+  
+  
+  isClicked(): boolean{
+    
+    if( this.clicked ===false){
+      this.clicked = true;
+    }
+    
+    return this.clicked;
+  }
 
   ngOnInit(): void {
     this.addMovieList()

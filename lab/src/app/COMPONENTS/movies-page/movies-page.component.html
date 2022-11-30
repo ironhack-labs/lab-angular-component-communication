@@ -5,11 +5,12 @@
       *ngFor="let character of charactersArr; let i = index"
       (input)="(character)"
     >
-      {{ character.name }} Click me!
-      <app-character-detail
-        [character]="character"
-        [index]="i"
-      ></app-character-detail>
+      {{ character.name }}
+      <span (click)="displayDetails(character); isClicked()">Click me!</span>
     </li>
+    <app-character-detail
+      *ngIf="clicked === true"
+      [character]="clickedCharacter"
+    ></app-character-detail>
   </ul>
 </div>
