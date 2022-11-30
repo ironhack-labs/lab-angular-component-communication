@@ -1,7 +1,24 @@
-<div>
-    <h1>Characters</h1>
-    <div *ngFor="let char of charactersNameList;">
-        <app-list-item [charProp]="char" [charsList]="charactersNameList" (updateListEvent)="updateList($event)">
-        </app-list-item>
+<h1>Characters</h1>
+<!-- <div class="form">
+    <h4>Create Your Own Character!</h4>
+    <div class="input">
+        <label for="name">Name</label>
+        <input type="text">
     </div>
+    <div class="input">
+        <label for="occupation">Occupation</label>
+        <input type="text">
+    </div>
+    <div class="input">
+        <label for="weapon">Weapon</label>
+        <input type="text">
+    </div>
+    <div class="input">
+        <label for="debt">debt</label>
+        <input type="checkbox">
+    </div>
+</div> -->
+<div class='list' *ngFor="let char of charactersNameList;">
+    <app-list-item [charProp]="char" [charsList]="charactersNameList" (updateListEvent)="updateList($event)">
+    </app-list-item>
 </div>

@@ -1,4 +1,26 @@
-.container {
+* {
+    width: fit-content;
+}
+
+h1 {
+    margin: 50px 15%;
+}
+
+div.form {
+    width: fit-content;
+    margin: auto;
+}
+
+.input {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.list {
+    margin: 30px auto;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    border: dotted 2px rgb(0, 0, 63);
 }
