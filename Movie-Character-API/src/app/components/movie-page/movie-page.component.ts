@@ -11,10 +11,7 @@ export class MoviePageComponent implements OnInit {
   characters: Character[];
   reveal: boolean;
 
-  constructor(
-    private getCharactersService: CharactersService,
-    private deleteCharacterService: CharactersService
-  ) {
+  constructor(private getCharactersService: CharactersService) {
     this.characters = [];
     this.reveal = false;
   }
@@ -26,6 +23,7 @@ export class MoviePageComponent implements OnInit {
   showMovieCharacters(): void {
     this.getCharactersService.getCharacters().subscribe({
       next: (dataResult) => {
+        this.characters = [];
         for (let char of dataResult) {
           let name: string = `${char.name}`;
           let occupation: string = `${char.occupation}`;
@@ -52,11 +50,15 @@ export class MoviePageComponent implements OnInit {
 
   deleteChar(id: number): void {
     console.log('deleting this id:' + id);
-    this.deleteCharacterService.deleteCharacter(id).subscribe({
-      next: () => {},
-      error: (error) => console.log(error),
+    this.getCharactersService.deleteCharacter(id).subscribe({
+      next: () => {
+        this.showMovieCharacters();
+      },
+      error: (error) => {
+        console.log(error);
+        this.showMovieCharacters();
+      },
       complete: () => {},
     });
-    this.showMovieCharacters();
   }
 }
