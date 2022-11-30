@@ -11,6 +11,7 @@
     <app-character-detail
       *ngIf="clicked === true"
       [character]="clickedCharacter"
+      (deleteCharEvent)="deleteChar($event)"
     ></app-character-detail>
   </ul>
 </div>

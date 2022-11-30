@@ -1,5 +1,5 @@
 import { Component, OnInit, ɵisListLikeIterable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ConnectableObservable, Observable } from 'rxjs';
 import { MovieDetail } from 'src/app/MODELS/movie-detail.model';
 import { MovieListService } from 'src/app/SERVICES/movie-list.service';
 
@@ -22,6 +22,7 @@ export class MoviesPageComponent implements OnInit {
     this.movieListService.getMovieList().subscribe(
       {
         next: (dataResult) =>{
+          this.charactersArr = [];
           for(let char of dataResult){
             let name: string = char.name;
             let occupation: string = char.occupation;
@@ -58,6 +59,25 @@ export class MoviesPageComponent implements OnInit {
     }
     
     return this.clicked;
+  }
+
+  deleteChar(id:number): void{
+    let deletedChar = this.charactersArr.filter((char)=> char.id === id);
+    console.log(id)
+    //let indexDeletedChar = this.charactersArr.indexOf(deletedChar[0]);
+    //console.log(indexDeletedChar)
+    
+    this.movieListService.deleteCharacter(id).subscribe({
+      next: (data) => {
+        console.log("test");
+        this.addMovieList();},
+
+      error: (data) => {
+        console.log("testerror");
+        this.addMovieList()
+      }
+    })
+    
   }
 
   ngOnInit(): void {

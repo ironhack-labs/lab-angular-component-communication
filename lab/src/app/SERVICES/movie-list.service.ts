@@ -12,4 +12,8 @@ export class MovieListService {
   getMovieList(): Observable<any>{
     return this.http.get<any>(this.API_URL + "/characters")
   }
+  deleteCharacter(id: number): Observable<any>{
+    console.log(`this.API_URL + /characters/${id}`)
+    return this.http.delete<any>(this.API_URL + `/characters/${id}`)
+  }
 }
