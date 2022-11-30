@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 
 @Component({
@@ -13,10 +13,19 @@ export class CharacterItemComponent implements OnInit {
   @Input()
   index: number;
 
+  @Output()
+  showDetailsEvent: EventEmitter<number>;
+
   constructor() {
-    this.charac = new Character('', '', false, '', 0);
+    this.charac = new Character('', '', false, '', 0, false);
     this.index = this.charac.id;
+    this.showDetailsEvent = new EventEmitter<number>();
   }
 
   ngOnInit(): void {}
+
+  showDetails(): void {
+    console.log('showing details of character...' + this.index);
+    this.showDetailsEvent.emit(this.index);
+  }
 }

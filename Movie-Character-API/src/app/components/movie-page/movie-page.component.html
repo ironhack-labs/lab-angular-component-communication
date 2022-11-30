@@ -5,23 +5,22 @@
     <h2>Movie Characters</h2>
     <!-- <button (click)="addRandomFan('madrid')">Add Random Fan</button> -->
     <div *ngFor="let charac of characters; let i = index">
-      <p>{{ charac.name }}</p>
+      <h4 (click)="showDetails(charac)">{{ charac.name }}</h4>
+      <app-character-item
+        *ngIf="charac.reveal"
+        [charProp]="charac"
+        [index]="i"
+      ></app-character-item>
       <!-- <button (click)="removeChar(i, 'madrid')">Delete</button> -->
-
-      <!-- <app-fan-item
-          [fanProp]="fan"
-          [index]="i"
-          (removeFanEvent)="removeFan($event, 'madrid')"
-          (changeTeamEvent)="changeTeam($event, 'madrid', true)"
-        ></app-fan-item> -->
     </div>
   </div>
 
-  <div class="fan-list">
+  <!-- <div class="fan-list">
     <h2>Selected Character</h2>
     <div *ngFor="let charac of characters; let i = index">
       <p>{{ charac.name }}</p>
-      <app-character-item [charProp]="charac" [index]="i"></app-character-item>
+      
+    
     </div>
-  </div>
+  </div> -->
 </div>

@@ -9,9 +9,11 @@ import { CharactersService } from 'src/app/services/character.service';
 })
 export class MoviePageComponent implements OnInit {
   characters: Character[];
+  reveal: boolean;
 
   constructor(private getCharactersService: CharactersService) {
     this.characters = [];
+    this.reveal = false;
   }
 
   ngOnInit(): void {
@@ -32,7 +34,8 @@ export class MoviePageComponent implements OnInit {
             occupation,
             debt,
             weapon,
-            id
+            id,
+            false
           );
           this.characters.push(selectedChar);
         }
@@ -40,5 +43,7 @@ export class MoviePageComponent implements OnInit {
     });
   }
 
-  showDetails(): void {}
+  showDetails(charac: Character): void {
+    !charac.reveal ? (charac.reveal = true) : (charac.reveal = false);
+  }
 }
