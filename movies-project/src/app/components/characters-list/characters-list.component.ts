@@ -12,25 +12,25 @@ export class CharactersListComponent implements OnInit {
   charOccupation: string;
   charWeapon: string;
   charDebt: boolean;
+  charShow: boolean;
 
   constructor(){
     this.charactersList =[
-      new Character("Lucia", "Astronauta", "Casco", true),
-      new Character("Marcos", "Pintor", "Pincel", false)
+      new Character("Lucia", "Astronauta", "Casco", true, false),
+      new Character("Marcos", "Pintor", "Pincel", false, false)
     ]
 
     this.charName = "";
     this.charOccupation = "";
     this.charWeapon = "";
     this.charDebt = false;
+    this.charShow = false;
   }
 
   ngOnInit(): void {}
 
   showItem(char:Character) : void {
-    console.log(char)
-    //DISPLAY DETAILS IN DETAILS COMPONENT:
-    //<app-characters-item [charProp]="char"></app-characters-item>
+    char.show === true? char.show = false : char.show = true;
   }
 
 }

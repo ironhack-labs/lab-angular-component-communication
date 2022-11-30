@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 
 @Component({
@@ -11,7 +11,7 @@ export class CharactersItemComponent implements OnInit {
   char: Character;
 
   constructor() {
-    this.char = new Character("", "", "", false)
+    this.char = new Character("", "", "", false, false);
   }
 
   ngOnInit(): void {}

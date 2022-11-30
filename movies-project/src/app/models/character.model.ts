@@ -3,7 +3,8 @@ export class Character {
         private _name: string,
         private _occupation: string,
         private _weapon: string,
-        private _debt: boolean
+        private _debt: boolean,
+        private _show: boolean,
     ) {}
     
     get name(): string {
@@ -22,6 +23,10 @@ export class Character {
         return this._debt;
     }
 
+    get show(): boolean {
+        return this._show;
+    }
+
     set name(name: string) {
         this._name = name;
     }
@@ -36,5 +41,9 @@ export class Character {
     
     set debt(debt: boolean) {
         this._debt = debt;
+    }
+
+    set show(show: boolean) {
+        this._show = show;
     }
 }
