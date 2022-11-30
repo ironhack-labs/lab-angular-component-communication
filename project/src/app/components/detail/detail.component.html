@@ -1,0 +1,22 @@
+<div id="parent">
+  <div id="grid-container">
+    <p id="id">
+      <span>ID.</span>
+      {{character.id}}</p>
+    <p id="name">
+      <span>N.</span>
+      {{character.name}}</p>
+    <p id="debt">
+      <span>Debt.</span>
+      {{character.debt}}</p>
+    <p id="weapon">
+      <span>Weapon.</span> 
+      {{character.weapon}}</p>
+    <p id="occupation">
+      <span>Occupation.</span>
+      {{character.occupation}}</p>
+    <div id="button-container">
+        <button (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+</div>

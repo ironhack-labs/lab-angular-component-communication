@@ -1,0 +1,10 @@
+<aside>
+    <ul>
+        <li *ngFor="let item of characters; index as i">
+            <Item 
+              [item]="item"
+              (itemClickEvent)="onClick($event)"
+            ></Item>
+        </li>
+    </ul>
+</aside>

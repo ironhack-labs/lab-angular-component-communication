@@ -1,0 +1,10 @@
+<main>
+    <List 
+      [characters]="characters"
+      (itemClickEventParent)="changeCurrent($event)"
+    ></List>
+    <Detail
+      [character]="currentCharacter"
+      (deleteEvent)="deleteCharacter($event)"
+    ></Detail>
+</main>
