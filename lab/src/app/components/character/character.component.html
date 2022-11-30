@@ -1,0 +1,21 @@
+<style>
+  .data_container {
+    cursor: pointer;
+  }
+</style>
+<h1>Characters!</h1>
+<hr />
+
+<div class="data_container" *ngFor="let item of data; let i = index">
+  <h3 (click)="clickCharacter = !clickCharacter; getIndex(i); clickIndex = i">
+    {{ item.name }}
+  </h3>
+  <div *ngIf="clickCharacter && clickIndex === i">
+    <app-character-details
+      [ocuppationProp]="item"
+      [weaponProp]="item"
+      [index]="i"
+      (removeCharctersItem)="removeCharacter($event)"
+    ></app-character-details>
+  </div>
+</div>
