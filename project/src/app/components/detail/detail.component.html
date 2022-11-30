@@ -1,4 +1,4 @@
-<div>
+<div id="parent">
   <div id="grid-container">
     <p id="id">
       <span>ID.</span>
@@ -15,5 +15,8 @@
     <p id="occupation">
       <span>Occupation.</span>
       {{character.occupation}}</p>
+    <div id="button-container">
+        <button (click)="onDelete()">Delete</button>
+    </div>
   </div>
 </div>

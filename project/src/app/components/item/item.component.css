@@ -3,6 +3,7 @@ p {
     border-radius: 5px;
     color: #fff; 
     transition: all .10s ease-in-out;
+    white-space: nowrap;
 }
 
 p:hover {
