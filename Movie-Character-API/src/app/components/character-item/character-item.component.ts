@@ -10,22 +10,18 @@ export class CharacterItemComponent implements OnInit {
   @Input('charProp')
   charac: Character;
 
-  @Input()
-  index: number;
-
   @Output()
-  showDetailsEvent: EventEmitter<number>;
+  deleteEvent: EventEmitter<number>;
 
   constructor() {
     this.charac = new Character('', '', false, '', 0, false);
-    this.index = this.charac.id;
-    this.showDetailsEvent = new EventEmitter<number>();
+    this.deleteEvent = new EventEmitter<number>();
   }
 
   ngOnInit(): void {}
 
-  showDetails(): void {
-    console.log('showing details of character...' + this.index);
-    this.showDetailsEvent.emit(this.index);
+  deleteChar(): void {
+    console.log('deleting character with Id...' + this.charac.id);
+    this.deleteEvent.emit(this.charac.id);
   }
 }

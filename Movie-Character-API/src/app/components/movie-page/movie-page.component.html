@@ -9,18 +9,8 @@
       <app-character-item
         *ngIf="charac.reveal"
         [charProp]="charac"
-        [index]="i"
+        (deleteEvent)="deleteChar($event)"
       ></app-character-item>
-      <!-- <button (click)="removeChar(i, 'madrid')">Delete</button> -->
     </div>
   </div>
-
-  <!-- <div class="fan-list">
-    <h2>Selected Character</h2>
-    <div *ngFor="let charac of characters; let i = index">
-      <p>{{ charac.name }}</p>
-      
-    
-    </div>
-  </div> -->
 </div>

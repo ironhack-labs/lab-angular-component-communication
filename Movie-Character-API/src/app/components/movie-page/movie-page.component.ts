@@ -11,7 +11,10 @@ export class MoviePageComponent implements OnInit {
   characters: Character[];
   reveal: boolean;
 
-  constructor(private getCharactersService: CharactersService) {
+  constructor(
+    private getCharactersService: CharactersService,
+    private deleteCharacterService: CharactersService
+  ) {
     this.characters = [];
     this.reveal = false;
   }
@@ -45,5 +48,15 @@ export class MoviePageComponent implements OnInit {
 
   showDetails(charac: Character): void {
     !charac.reveal ? (charac.reveal = true) : (charac.reveal = false);
+  }
+
+  deleteChar(id: number): void {
+    console.log('deleting this id:' + id);
+    this.deleteCharacterService.deleteCharacter(id).subscribe({
+      next: () => {},
+      error: (error) => console.log(error),
+      complete: () => {},
+    });
+    this.showMovieCharacters();
   }
 }
