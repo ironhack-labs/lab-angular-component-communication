@@ -1,11 +1,7 @@
 <div>
     <h1>Characters</h1>
     <div *ngFor="let char of charactersNameList;">
-        <app-list-item [charProp]="char"></app-list-item>
+        <app-list-item [charProp]="char" [charsList]="charactersNameList" (updateListEvent)="updateList($event)">
+        </app-list-item>
     </div>
 </div>
-<!-- <div>
-        *ngif="showDetails" 
-
-        <app-character-details></app-character-details>
-    </div> -->

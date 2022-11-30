@@ -1,8 +1,8 @@
 <div>
     <p>{{char.name}}</p>
-    <button (click)="showDetails = !showDetails">Show Details</button>
+    <button (click)="seeDetails()">Show Details</button>
 </div>
 
 <div *ngIf="showDetails">
-    <app-character-details [idProp]="id"></app-character-details>
+    <app-character-details [idProp]="id" (deleteCharacter)="deleteChar($event)"></app-character-details>
 </div>

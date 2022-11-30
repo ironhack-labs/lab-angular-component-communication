@@ -16,6 +16,11 @@ export class APICharacters {
   getOneCharacter(id: number): Observable<any> {
     return this.http.get<any>(this.API_URL + `/characters/${id}`);
   }
+  deleteCharacter(id: number): Observable<any> {
+    return this.http.delete<any>(this.API_URL + `/characters/${id}`);
+  }
+
+
   // createCharacter(): Observable<any> {
   //   return this.http.post<any>(this.API_URL + "/characters", body);
   // }

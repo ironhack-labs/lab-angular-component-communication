@@ -9,14 +9,13 @@ import { APICharacters } from 'src/app/services/characters.service';
 })
 export class CharactersListComponent implements OnInit {
   charactersNameList: ListItem[];
-  showDetails: boolean = false
+  showDetails: boolean = false;
 
   constructor(private APIChar: APICharacters) {
     this.charactersNameList = []
   }
 
   ngOnInit(): void {
-    console.log('Hola')
     this.APIChar.getAllCharacters().subscribe(
       {
         next: (dataResult) => {
@@ -27,10 +26,12 @@ export class CharactersListComponent implements OnInit {
         error: (error) => {
           console.log(error);
         },
-        complete: () => {
-          console.log('Soy la lista', this.charactersNameList)
-        }
       }
     );
   }
+
+  updateList(updatedList: ListItem[]) {
+    this.charactersNameList = updatedList
+  }
+
 }
