@@ -8,6 +8,7 @@ import { Character } from 'src/app/models/character.model';
 })
 export class CharactersListComponent implements OnInit {
   charactersList: Character[];
+  deletedCharactersList: Character[];
   charName: string;
   charOccupation: string;
   charWeapon: string;
@@ -17,8 +18,14 @@ export class CharactersListComponent implements OnInit {
   constructor(){
     this.charactersList =[
       new Character("Lucia", "Astronauta", "Casco", true, false),
-      new Character("Marcos", "Pintor", "Pincel", false, false)
+      new Character("Marcos", "Pintor", "Pincel", false, false),
+      new Character("Paco", "Abogado", "Mano izquierda", false, false),
+      new Character("Pepe", "Ministro", "Consitutución", true, false),
+      new Character("Marcos", "Barrendero", "Pelusas", true, false),
+      new Character("María", "Panadera", "Levadura", false, false),
     ]
+
+    this.deletedCharactersList=[]
 
     this.charName = "";
     this.charOccupation = "";
@@ -33,4 +40,14 @@ export class CharactersListComponent implements OnInit {
     char.show === true? char.show = false : char.show = true;
   }
 
+  deleteItem(char:Character){
+    console.log(this.charactersList)
+    console.log(this.deletedCharactersList)
+
+    this.charactersList.filter(character => character === char).forEach(character => this.deletedCharactersList.push(character));
+    this.charactersList = this.charactersList.filter(character => character !== char);
+
+    console.log(this.charactersList)
+    console.log(this.deletedCharactersList)
+  }
 }
