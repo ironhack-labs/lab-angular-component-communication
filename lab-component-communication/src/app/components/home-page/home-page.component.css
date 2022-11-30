@@ -1,0 +1,10 @@
+
+body {
+    display:flex;
+    align-items: baseline;
+    
+}
+.create-char-box{
+    margin-left: 10%;
+    flex-direction: column;
+}

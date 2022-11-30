@@ -1,0 +1,10 @@
+<div *ngIf="char.isShown">
+    <ul>
+        <li>ID: {{char.id}}</li>
+        <li>Occupation: {{char.occupation}}</li>
+        <li>Debt: {{char.debt}}</li>
+        <li>Weapon: {{char.weapon}}</li>
+    
+        <button (click)="removeChar()">Delete</button>
+    </ul>
+</div>
