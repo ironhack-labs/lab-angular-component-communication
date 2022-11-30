@@ -26,11 +26,16 @@ export class RandomCharacterService {
     return this.http.delete<any>(this.API_URL + `characters/${id}`)
   }
 
-  // getCharById(): Observable<any> {
-  //   return this.http.get<any>(`${this.API_URL}${id}`)
-  // }
+  getCharById(id:number): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}characters/${id}`)
+  }
+
   createCharacter(character: {name: string, occupation: string, debt: boolean, weapon: string}): Observable<any> {
     return this.http.post(this.API_URL + 'characters/', character)
+  }
+
+  editCharacter(id: number, char: {}): Observable<any>{
+    return this.http.put(`${this.API_URL}characters/${id}`, char)
   }
 
   

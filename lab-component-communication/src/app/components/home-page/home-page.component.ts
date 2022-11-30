@@ -48,8 +48,8 @@ export class HomePageComponent {
     this.charList.splice(i, 1);
   }
   shown(char: Character){
-    if(!char.isShown) { char.isShown = true;}
-    else{ char.isShown = false; }
+    if(!char.isShown) { return char.isShown = true;}
+    else{ return char.isShown = false; }
   }
 
 

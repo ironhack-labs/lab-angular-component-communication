@@ -6,11 +6,11 @@
         <h1>Characters</h1>
         <ul *ngFor="let char of charList, let i=index">
             <li (click)="shown(char)">{{char.name}}</li>
+            <app-edit-char *ngIf="char.isShown" [id]="char.id"></app-edit-char>
             <app-char-item 
-            
-            [char]="char" 
-            [index]="i" 
-            (indexChar)="removeChar($event)">
+                [char]="char" 
+                [index]="i" 
+                (indexChar)="removeChar($event)">
             </app-char-item>
 
         </ul>

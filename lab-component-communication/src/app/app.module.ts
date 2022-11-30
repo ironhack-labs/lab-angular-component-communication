@@ -7,13 +7,15 @@ import { CharItemComponent } from './components/char-item/char-item.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { CreateCharComponent } from './components/create-char/create-char.component';
+import { EditCharComponent } from './components/edit-char/edit-char.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     CharItemComponent,
-    CreateCharComponent
+    CreateCharComponent,
+    EditCharComponent
   ],
   imports: [
     BrowserModule,
