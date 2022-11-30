@@ -1,0 +1,16 @@
+<h1>Movie Characters for everyone!</h1>
+
+<div class="container">
+  <div class="fan-list">
+    <h2>Movie Characters</h2>
+    <!-- <button (click)="addRandomFan('madrid')">Add Random Fan</button> -->
+    <div *ngFor="let charac of characters; let i = index">
+      <h4 (click)="showDetails(charac)">{{ charac.name }}</h4>
+      <app-character-item
+        *ngIf="charac.reveal"
+        [charProp]="charac"
+        (deleteEvent)="deleteChar($event)"
+      ></app-character-item>
+    </div>
+  </div>
+</div>
