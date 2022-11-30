@@ -13,18 +13,22 @@ export class CharacterComponent implements OnInit {
   clickIndex: number;
   status: string;
 
-  /* Constructor------------ */
+  /* ------------Constructor------------ */
   constructor(private api: ApiService) {
     this.clickCharacter = false;
     this.clickIndex = 0;
     this.status = '';
   }
   ngOnInit(): void {
-    // this.refreshData();
+    this.refreshData();
+  }
 
+  /* ------------Methods------------ */
+  refreshData(): void {
     this.api.getCharacter().subscribe({
       next: (dataResult) => {
         this.data = dataResult;
+        console.log(this.data);
       },
       error(err) {
         console.log(err);
@@ -32,37 +36,24 @@ export class CharacterComponent implements OnInit {
     });
   }
 
-  /* Methods------------ */
-  getIndex(i: number): void {
-    console.log(this.data[i].id);
-  }
-
-  // refreshData(): void {
-  //   this.api.getCharacter().subscribe({
-  //     next: (dataResult) => {
-  //       this.data = dataResult;
-  //       // console.log(this.data);
-  //     },
-  //     error(err) {
-  //       console.log(err);
-  //     },
-  //   });
-  // }
-
   removeCharacter(i: number): void {
     this.api.deleteCharacter(this.data[i].id).subscribe({
-      next: (err) => {
+      next: () => {
         console.log('estamos dentro del NEXT');
-        this.status = err;
-        this.ngOnInit();
-        window.location.reload();
+        // this.ngOnInit();
+        // window.location.reload();
       },
       error(err) {
         console.log(`ESTE ES EL ERRROR ${err.name} `);
         console.log(err);
-        window.location.reload();
+        // window.location.reload();
       },
     });
-    console.log(`Este es despues de cliquear en delete ${this.data[i].id}`);
+    let itemDelete = this.data.splice(i, 1);
+    console.log(itemDelete);
+  }
+
+  getIndex(i: number): void {
+    console.log(this.data[i].id);
   }
 }
