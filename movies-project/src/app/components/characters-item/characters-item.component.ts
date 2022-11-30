@@ -14,7 +14,7 @@ export class CharactersItemComponent implements OnInit {
   deleteCharEvent : EventEmitter<Character>
 
   constructor() {
-    this.char = new Character("", "", "", false, false);
+    this.char = new Character("", "", "", false, false, 0);
     this.deleteCharEvent = new EventEmitter<Character>
   }
 

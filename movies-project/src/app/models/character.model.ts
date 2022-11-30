@@ -5,6 +5,7 @@ export class Character {
         private _weapon: string,
         private _debt: boolean,
         private _show: boolean,
+        private _id : number,
     ) {}
     
     get name(): string {
@@ -27,6 +28,10 @@ export class Character {
         return this._show;
     }
 
+    get id():number {
+        return this._id;
+    }
+
     set name(name: string) {
         this._name = name;
     }
@@ -45,5 +50,9 @@ export class Character {
 
     set show(show: boolean) {
         this._show = show;
+    }
+
+    set id(id: number) {
+        this._id = id;
     }
 }
