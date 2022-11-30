@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieDetail } from 'src/app/MODELS/movie-detail.model';
 
 @Component({
@@ -8,15 +8,16 @@ import { MovieDetail } from 'src/app/MODELS/movie-detail.model';
 })
 export class CharacterDetailComponent {
 
-  @Input("charProp")
+  @Input("character")
   character: MovieDetail;
- 
-  @Input()
-  index: number;
+ @Input()
+ index: number;
+  
 
   constructor(){
    this.character = new MovieDetail('','', false, '', 0);
+   this.index = 0;
   }
   ngOnInit(): void {}
-
+  
 }

@@ -11,6 +11,7 @@ import { MovieListService } from 'src/app/SERVICES/movie-list.service';
 export class MoviesPageComponent implements OnInit {
   
   charactersArr: MovieDetail[] = [];
+ 
 
   constructor(private movieListService: MovieListService){}
 
@@ -39,10 +40,7 @@ export class MoviesPageComponent implements OnInit {
       })
     
   }
-  displayDetails(){
-    
-    
-  }
+  
   
 
 

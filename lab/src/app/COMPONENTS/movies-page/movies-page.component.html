@@ -3,11 +3,11 @@
   <ul>
     <li
       *ngFor="let character of charactersArr; let i = index"
-      (click)="displayDetails()"
+      (input)="(character)"
     >
       {{ character.name }} Click me!
       <app-character-detail
-        [charProp]="character"
+        [character]="character"
         [index]="i"
       ></app-character-detail>
     </li>
