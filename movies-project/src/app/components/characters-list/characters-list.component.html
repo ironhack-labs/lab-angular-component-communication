@@ -1,4 +1,6 @@
 <h2>Characters list</h2>
+<p>Click on a character's name to view more information about them :)</p>
+<button (click)="reLoadList()">Reload list (from API)</button>
 <ul>
     <li *ngFor="let char of charactersList; let i=index">
         <div (click)="showItem(char)">{{char.name}}</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
+import { SharedApiService } from 'src/app/services/shared-api.service';
 
 @Component({
   selector: 'app-characters-list',
@@ -15,16 +16,17 @@ export class CharactersListComponent implements OnInit {
   charDebt: boolean;
   charShow: boolean;
 
-  constructor(){
-    this.charactersList =[
-      new Character("Lucia", "Astronauta", "Casco", true, false),
-      new Character("Marcos", "Pintor", "Pincel", false, false),
-      new Character("Paco", "Abogado", "Mano izquierda", false, false),
-      new Character("Pepe", "Ministro", "Consitutución", true, false),
-      new Character("Marcos", "Barrendero", "Pelusas", true, false),
-      new Character("María", "Panadera", "Levadura", false, false),
-    ]
+  constructor(private sharedApiService: SharedApiService){
+    // this.charactersList =[
+    //   new Character("Lucia", "Astronauta", "Casco", true, false),
+    //   new Character("Marcos", "Pintor", "Pincel", false, false),
+    //   new Character("Paco", "Abogado", "Mano izquierda", false, false),
+    //   new Character("Pepe", "Ministro", "Consitutución", true, false),
+    //   new Character("Marcos", "Barrendero", "Pelusas", true, false),
+    //   new Character("María", "Panadera", "Levadura", false, false),
+    // ]
 
+    this.charactersList = []
     this.deletedCharactersList=[]
 
     this.charName = "";
@@ -34,7 +36,20 @@ export class CharactersListComponent implements OnInit {
     this.charShow = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sharedApiService.getCharactersList().subscribe(
+      {
+        next: (dataResult) => {
+          for(let i=0; i<dataResult.length; i++){
+            this.charactersList.push(
+              new Character(dataResult[i].name, dataResult[i].occupation, dataResult[i].weapon, dataResult[i].debt, false)
+            )
+          }
+          // console.log(dataResult)
+        }
+      }
+    )
+  }
 
   showItem(char:Character) : void {
     char.show === true? char.show = false : char.show = true;
@@ -49,5 +64,21 @@ export class CharactersListComponent implements OnInit {
 
     console.log(this.charactersList)
     console.log(this.deletedCharactersList)
+  }
+
+  reLoadList() {
+    this.charactersList = [];
+    this.sharedApiService.getCharactersList().subscribe(
+      {
+        next: (dataResult) => {
+          for(let i=0; i<dataResult.length; i++){
+            this.charactersList.push(
+              new Character(dataResult[i].name, dataResult[i].occupation, dataResult[i].weapon, dataResult[i].debt, false)
+            )
+          }
+          // console.log(dataResult)
+        }
+      }
+    )
   }
 }
