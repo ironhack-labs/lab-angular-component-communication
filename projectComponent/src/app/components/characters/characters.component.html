@@ -1,0 +1,12 @@
+<div class="names">
+   <hr>
+  <p (click)="showDetails()">{{ character.name }}</p>   
+</div>
+
+<div class="details" *ngIf="character.isClicked === true">
+   <p>{{ character.occupation}}</p>
+   <p>{{ character.weapon}}</p>
+   <p>{{ character.debt}}</p>
+   <p>{{character.id}}</p>
+   <button (click)="removeCharacterChild()">Delete Character</button>   
+</div>
