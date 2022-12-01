@@ -13,4 +13,8 @@ export class CharactersFromApiService {
   getCharacterList(): Observable<any> {
     return this.http.get<any>(this.API_URL + '/characters');
   }
+
+  deleteCharacterList(): Observable<any> {
+    return this.http.delete<any>(this.API_URL + '/characters/:id')
+  }
 }

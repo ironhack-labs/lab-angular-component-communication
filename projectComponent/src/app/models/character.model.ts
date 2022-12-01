@@ -4,8 +4,17 @@ export class Character {
         private _occupation: string,
         private _weapon: string,
         private _debt: boolean,
-        private _id: number
+        private _id: number,
+        private _isClicked: boolean = false
     ) {}
+
+    get isClicked(): boolean {
+        return this._isClicked
+    }
+
+    set isClicked(isClicked: boolean){
+        this._isClicked = isClicked
+    }
 
     get name(): string {
         return this._name

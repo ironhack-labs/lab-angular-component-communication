@@ -9,16 +9,14 @@ import { CharactersFromApiService } from '../../services/characters-from-api.ser
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  characters: Character[];
+  characters: Character[];  
 
   constructor(private charactersFromApiService: CharactersFromApiService) {
-    this.characters = [
-      new Character('Pablo Orozco', 'Programador Junior', 'Rifle', true, 0),
-      new Character('Cristian Sánchez', 'Programador Junior', 'Katana', true, 0),
-      new Character('Blanca Bigeriego', 'Programadora Junior', 'Pistola', true, 0),
-      new Character('Ana Salamanca', 'Programadora Junior', 'Arco', true, 0),
+    this.characters = [      
+      new Character('Cristian Sánchez', 'Programador Junior', 'Katana', true, 0)      
     ];
   }
+  
 
   ngOnInit(): void {
     this.addCharacterList();
@@ -44,5 +42,9 @@ export class ListComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  removeCharacter(index: number): void {
+    this.characters.splice(index, 1)
   }
 }

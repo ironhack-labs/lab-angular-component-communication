@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { CharactersComponent } from './components/characters/characters.component';
 
+
 @NgModule({
   declarations: [AppComponent, ListComponent, CharactersComponent],
   imports: [BrowserModule, HttpClientModule],
