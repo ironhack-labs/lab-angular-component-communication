@@ -64,8 +64,7 @@ export class MoviesPageComponent implements OnInit {
   deleteChar(id:number): void{
     let deletedChar = this.charactersArr.filter((char)=> char.id === id);
     console.log(id)
-    //let indexDeletedChar = this.charactersArr.indexOf(deletedChar[0]);
-    //console.log(indexDeletedChar)
+  
     
     this.movieListService.deleteCharacter(id).subscribe({
       next: (data) => {

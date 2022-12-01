@@ -1,0 +1,25 @@
+.details{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    align-self: center;
+    background-color: blueviolet;
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.details p{
+    color: white;
+}
+
+.btn{
+    font-size: 30px;
+    cursor: pointer;
+    padding: 20px 20px;
+    background-color: aqua;
+    border-radius: 10%;
+    margin-left: 30px;
+    color: purple;
+    font-weight: bold;
+    border: none;
+    align-self: left;
+}

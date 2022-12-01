@@ -1,17 +1,25 @@
 <div>
-  <h1>Characters:</h1>
+  <h1 class="title">Characters:</h1>
   <ul>
-    <li
-      *ngFor="let character of charactersArr; let i = index"
-      (input)="(character)"
-    >
-      {{ character.name }}
-      <span (click)="displayDetails(character); isClicked()">Click me!</span>
-    </li>
-    <app-character-detail
-      *ngIf="clicked === true"
-      [character]="clickedCharacter"
-      (deleteCharEvent)="deleteChar($event)"
-    ></app-character-detail>
+    <div class="container">
+      <div class="lis-container">
+        <li
+          *ngFor="let character of charactersArr; let i = index"
+          (input)="(character)"
+        >
+          {{ character.name }}
+          <span (click)="displayDetails(character); isClicked()"
+            >Click me!</span
+          >
+        </li>
+      </div>
+      <div class="details-container">
+        <app-character-detail
+          *ngIf="clicked === true"
+          [character]="clickedCharacter"
+          (deleteCharEvent)="deleteChar($event)"
+        ></app-character-detail>
+      </div>
+    </div>
   </ul>
 </div>
